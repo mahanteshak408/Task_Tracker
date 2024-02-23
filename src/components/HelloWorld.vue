@@ -15,8 +15,8 @@
         <AddTask :enable="isNewTask" :isEdit="isEditTask" @close="closeTask" @update="tasksAdded" />
       </div>
     </div>
-    <div class="-mx-4 mt-10 ring-1 ring-gray-300 sm:mx-0 sm:rounded-lg">
-      <table class="min-w-full divide-y divide-gray-300 text-white dark:text-black">
+    <div class="-mx-4 mt-10 sm:mx-0 sm:rounded-lg" :class="{'ring-1 ring-gray-300':TaskList.length>0 }">
+      <table  v-if="TaskList.length>0" class="min-w-full divide-y divide-gray-300 text-white dark:text-black">
         <thead>
           <tr>
             <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 dark:text-white sm:pl-6">Title</th>
@@ -51,6 +51,22 @@
           </tr>
         </tbody>
       </table>
+
+
+      <div v-else class="rounded-full bg-blue-50 p-4">
+    <div class="flex">
+      <div class="flex-shrink-0">
+        <InformationCircleIcon class="h-5 w-5 text-blue-400" aria-hidden="true" />
+      </div>
+      <div class="ml-3 flex-1 md:flex md:justify-between">
+        <p class="text-sm text-blue-700">Initially, there is no task list. To add one, click on the "Add Task" button.</p>
+        <p class="mt-3 text-sm md:ml-6 md:mt-0">
+        
+        </p>
+      </div>
+    </div>
+  </div>
+
     </div>
   </div>
 
@@ -104,6 +120,7 @@
 import { useCounterStore } from '@/stores/counter'
 import AddTask from './AddTask.vue'
 
+import { InformationCircleIcon } from '@heroicons/vue/20/solid'
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
 import { ExclamationTriangleIcon } from '@heroicons/vue/24/outline'
 
