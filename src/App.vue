@@ -10,7 +10,7 @@ const toggleDark = useToggle(isDark);
 </script>
 
 <template>
-  <div class="text-white bg-white dark:bg-black dark:text-black">
+  <div class="text-white h-screen bg-white dark:bg-black dark:text-black">
     <Header :modeType="isDark" @selectMode="toggleDark" />
     <HomeView class="text-white bg-white dark:bg-black dark:text-black"/>
     <FooterComp  class="text-white bg-white dark:bg-black dark:text-black"/>
