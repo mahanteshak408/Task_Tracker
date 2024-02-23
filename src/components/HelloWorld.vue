@@ -19,8 +19,8 @@
       <table class="min-w-full divide-y divide-gray-300 text-white dark:text-black">
         <thead>
           <tr>
-            <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Title</th>
-            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Descriptions</th>
+            <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 dark:text-white sm:pl-6">Title</th>
+            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-white">Descriptions</th>
             <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
               <span class="sr-only">Select</span>
             </th>
@@ -28,8 +28,8 @@
         </thead>
         <tbody>
           <tr v-for="task in TaskList" :key="task.taskId">
-            <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">{{task.title }}</td>
-            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ task.descriptions}}</td>
+            <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0 dark:text-white">{{task.title }}</td>
+            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-white">{{ task.descriptions}}</td>
 
 
             <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm sm:pr-0" @click="editTask(task)">
