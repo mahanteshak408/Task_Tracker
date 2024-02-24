@@ -1,8 +1,8 @@
 <template>
-  <div class="px-4 sm:px-6 lg:px-8">
+  <div class="px-4 sm:px-6 lg:px-8 card  dark:bg-slate-50   border-b border-gray-200 bg-white  h-screen py-5 sm:px-6">
     <div class="sm:flex sm:items-center">
       <div class="sm:flex-auto">
-        <h1 class="text-base font-semibold leading-6  text-black dark:text-white">Task Tracker</h1>
+        <h1 class="text-base font-semibold leading-6  text-black dark:text-black">Task Tracker</h1>
         <!-- <p class="mt-2 text-sm text-gray-700">Your team is on the <strong class="font-semibold text-gray-900">Startup</strong> plan. The next payment of $80 will be due on August 4, 2022.</p> -->
       </div>
 
@@ -19,8 +19,8 @@
       <table  v-if="TaskList.length>0" class="min-w-full divide-y divide-gray-300 text-white dark:text-black">
         <thead>
           <tr>
-            <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 dark:text-white sm:pl-6">Title</th>
-            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-white">Descriptions</th>
+            <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 dark:text-black sm:pl-6">Title</th>
+            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-black">Descriptions</th>
             <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
               <span class="sr-only">Select</span>
             </th>
@@ -28,8 +28,8 @@
         </thead>
         <tbody>
           <tr v-for="task in TaskList" :key="task.taskId">
-            <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0 dark:text-white">{{task.title }}</td>
-            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-white">{{ task.descriptions}}</td>
+            <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0 dark:text-black">{{task.title }}</td>
+            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-black">{{ task.descriptions}}</td>
 
 
             <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm sm:pr-0" @click="editTask(task)">
@@ -60,9 +60,7 @@
       </div>
       <div class="ml-3 flex-1 md:flex md:justify-between">
         <p class="text-sm text-blue-700">Initially, there is no task list. To add one, click on the "Add Task" button.</p>
-        <p class="mt-3 text-sm md:ml-6 md:mt-0">
         
-        </p>
       </div>
     </div>
   </div>
@@ -169,8 +167,10 @@ const deleteTask1 = (data) => {
     return item.taskId !== data.taskId; // use return statement
   });
   open.value = false;
-
+  counter.TaskList=TaskList.value;
   console.log("removedList", TaskList.value);
+
+  deletedSelectedTask.value = [];
 }
 
 const tasksAdded = () => {

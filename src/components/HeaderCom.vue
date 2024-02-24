@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-slate-400 p-2">
+    <div class="bg-slate-400 p-2 card">
         <div class="flex justify-between"> 
             <p></p>
             <p>Task Tracker</p>
