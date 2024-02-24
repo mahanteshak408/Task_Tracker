@@ -92,7 +92,7 @@ onMounted(() => {
 
 const isTitleValid = ref(true);
 const isDescriptionValid = ref(true);
-
+const   newObj=ref({})
 const addItem = () => {
     // Validate form before submission
     if (formData.value.title === '') {
@@ -115,18 +115,20 @@ const addItem = () => {
 
     if (props.isEdit) {
         // For editing, filter out the task to be updated
+        // let updatedTaskList = taskList.value.filter(item => console.log("uyuknnn555555555555555555",item));
         let updatedTaskList = taskList.value.filter(item => item.taskId !== counter.selectedTask.taskId);
         // Update the filtered task list with the modified task
-        let newObj={taskId:counter.TaskList.length,...formData.value}
-        updatedTaskList.push(newObj);
+        console.log("updatedTaskList",updatedTaskList);
+     newObj.value ={taskId:counter.selectedTask.taskId,...formData.value}
+        updatedTaskList.push(newObj.value);
         // Update the taskList.value with the modified list
-        counter.TaskList = updatedTaskList;
+        counter.TaskList = updatedTaskList.sort((a,b)=>a.taskId-b.taskId);
     } else {
         // For adding a new task, simply add it to the task list
         counter.addTask(formData.value);
     }
 
-    console.log("Updated taskList.value:", taskList.value);
+    console.log("Updated taskList.value:", counter.TaskList);
     emit('close');
     emit('update');
 }
