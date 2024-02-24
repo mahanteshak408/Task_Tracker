@@ -1,12 +1,12 @@
 <template>
-  <div class="px-4 sm:px-6 lg:px-8 card  dark:bg-slate-50   border-b border-gray-200 bg-white  h-screen py-5 sm:px-6">
+  <div class="px-4 sm:px-6 lg:px-8 card  dark:bg-primary-dark  bg-primary-light rounded-lg  border-2 border-gray-400  h-screen py-5 sm:px-6">
     <div class="sm:flex sm:items-center">
       <div class="sm:flex-auto">
-        <h1 class="text-base font-semibold leading-6  text-black dark:text-black">Task Tracker</h1>
+        <!-- <h1 class="text-base font-semibold leading-6  text-black dark:text-black">Task Tracker</h1> -->
         <!-- <p class="mt-2 text-sm text-gray-700">Your team is on the <strong class="font-semibold text-gray-900">Startup</strong> plan. The next payment of $80 will be due on August 4, 2022.</p> -->
       </div>
 
-      <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+      <div class="mt-4 sm:ml-16 sm:mt-0  flex justify-end">
         <button type="button"
           class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           @click="addTask()">Add Task</button>
@@ -15,12 +15,12 @@
         <AddTask :enable="isNewTask" :isEdit="isEditTask" @close="closeTask" @update="tasksAdded" />
       </div>
     </div>
-    <div class="-mx-4 mt-10 sm:mx-0 sm:rounded-lg" :class="{'ring-1 ring-gray-300':TaskList.length>0 }">
+    <div class=" mt-10 sm:mx-0 sm:rounded-lg mx-2" :class="{'ring-1 ring-gray-300 ':TaskList.length>0 }">
       <table  v-if="TaskList.length>0" class="min-w-full divide-y divide-gray-300 text-white dark:text-black">
         <thead>
           <tr>
-            <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 dark:text-black sm:pl-6">Title</th>
-            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-black">Descriptions</th>
+            <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 dark:text-primary-light sm:pl-6">Title</th>
+            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-primary-light">Descriptions</th>
             <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
               <span class="sr-only">Select</span>
             </th>
@@ -28,11 +28,11 @@
         </thead>
         <tbody>
           <tr v-for="task in TaskList" :key="task.taskId">
-            <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0 dark:text-black">{{task.title }}</td>
-            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-black">{{ task.descriptions}}</td>
+            <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0 dark:text-primary-light">{{task.title }}</td>
+            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-primary-light">{{ task.descriptions}}</td>
 
 
-            <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm sm:pr-0" @click="editTask(task)">
+            <td class="relative whitespace-wrap py-4 pl-3 pr-4 text-right text-sm sm:pr-0 dark:text-primary-light" @click="editTask(task)">
               <a href="#" class="text-indigo-600 hover:text-indigo-900"><svg xmlns="http://www.w3.org/2000/svg"
                   fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                   <path stroke-linecap="round" stroke-linejoin="round"
@@ -40,7 +40,7 @@
                 </svg>
                 <span class="sr-only">,</span></a>
             </td>
-            <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm sm:pr-0" @click="deleteTask(task)">
+            <td class="relative whitespace-wrap py-4 pl-3 pr-4 text-right text-sm sm:pr-0 dark:text-primary-light" @click="deleteTask(task)">
               <a href="#" class="text-indigo-600 hover:text-indigo-900"><svg xmlns="http://www.w3.org/2000/svg"
                   fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                   <path stroke-linecap="round" stroke-linejoin="round"
@@ -53,7 +53,7 @@
       </table>
 
 
-      <div v-else class="rounded-full bg-blue-50 p-4">
+      <div v-else class="rounded-full bg-slate-300 dark:secondary-dark p-4">
     <div class="flex">
       <div class="flex-shrink-0">
         <InformationCircleIcon class="h-5 w-5 text-blue-400" aria-hidden="true" />
