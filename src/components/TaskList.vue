@@ -15,7 +15,7 @@
         <AddTask :enable="isNewTask" :isEdit="isEditTask" @close="closeTask" @update="tasksAdded" />
       </div>
     </div>
-    <div class=" mt-10 sm:mx-0 sm:rounded-lg mx-2" :class="{'ring-1 ring-gray-300 ':TaskList.length>0 }">
+    <div class=" mt-10 sm:mx-0 sm:rounded-lg lg:mx-2" :class="{'ring-1 ring-gray-300 ':TaskList.length>0 }">
       <table  v-if="TaskList.length>0" class="min-w-full divide-y divide-gray-300 text-white dark:text-black">
         <thead>
           <tr>
@@ -29,7 +29,7 @@
         <tbody>
           <tr v-for="task in TaskList" :key="task.taskId" class="">
             <td class="whitespace-wrap pl-4 px-2 pr-3 py-4 text-center  text-sm font-medium text-gray-900 sm:pl-0 dark:text-primary-light">{{task.title }}</td>
-            <td class="whitespace-wrap px-3 py-4 text-sm text-gray-500 dark:text-primary-light">{{ task.descriptions}}</td>
+            <td class="whitespace-wrap sm:text-xs py-4 text-sm text-gray-500 dark:text-primary-light">{{ task.descriptions}}</td>
 
 
             <td class="relative whitespace-wrap py-4 pl-3 pr-4 text-right text-sm sm:pr-0 dark:text-primary-light" @click="editTask(task)">
