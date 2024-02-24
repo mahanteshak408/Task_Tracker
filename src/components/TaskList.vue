@@ -1,6 +1,6 @@
 <template>
   <div class="px-4 sm:px-6 lg:px-8 card  dark:bg-primary-dark  bg-primary-light rounded-lg  border-2 border-gray-400  h-screen py-5 sm:px-6">
-    <div class="sm:flex sm:items-center">
+    <div class="">
       <div class="sm:flex-auto">
         <!-- <h1 class="text-base font-semibold leading-6  text-black dark:text-black">Task Tracker</h1> -->
         <!-- <p class="mt-2 text-sm text-gray-700">Your team is on the <strong class="font-semibold text-gray-900">Startup</strong> plan. The next payment of $80 will be due on August 4, 2022.</p> -->
@@ -19,7 +19,7 @@
       <table  v-if="TaskList.length>0" class="min-w-full divide-y divide-gray-300 text-white dark:text-black">
         <thead>
           <tr>
-            <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 dark:text-primary-light sm:pl-6">Title</th>
+            <th scope="col" class="py-3.5 pl-4 -px-4 pr-3 text-center text-sm font-semibold text-gray-900 dark:text-primary-light sm:pl-6">Title</th>
             <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-primary-light">Descriptions</th>
             <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
               <span class="sr-only">Select</span>
@@ -27,9 +27,9 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="task in TaskList" :key="task.taskId">
-            <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0 dark:text-primary-light">{{task.title }}</td>
-            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-primary-light">{{ task.descriptions}}</td>
+          <tr v-for="task in TaskList" :key="task.taskId" class="">
+            <td class="whitespace-wrap pl-4 px-2 pr-3 py-4 text-center  text-sm font-medium text-gray-900 sm:pl-0 dark:text-primary-light">{{task.title }}</td>
+            <td class="whitespace-wrap px-3 py-4 text-sm text-gray-500 dark:text-primary-light">{{ task.descriptions}}</td>
 
 
             <td class="relative whitespace-wrap py-4 pl-3 pr-4 text-right text-sm sm:pr-0 dark:text-primary-light" @click="editTask(task)">

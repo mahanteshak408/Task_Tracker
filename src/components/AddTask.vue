@@ -10,7 +10,7 @@
                         <label for="title" class="block text-sm font-medium leading-6 text-gray-900 dark:text-white">Title</label>
                         <div class="mt-2">
                             <input v-model="formData.title" type="title" name="title" id="title"
-                                class="block w-full lg:w-1/2 md:w-1/2 lg:w-full p-1 rounded-md border-0 py-1.5 text-gray-900 dark:text-white dark:bg-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                class="block w-full md:w-full lg:w-full p-1 rounded-md border-0 py-1.5 text-gray-900 dark:text-white dark:bg-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 placeholder="Enter Task Title" />
                             <span v-if="!isTitleValid" class="error">Title is required</span>
 
