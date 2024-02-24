@@ -1,7 +1,7 @@
 <template>
     <div class="card border-2  rounded-md my-2">
         <div class="flex justify-center border-2 p-2 rounded-t-md bg-slate-400">
-            <p>Add Task</p>
+            <p>{{props.isEdit?'Edit Task':'Add Task'}}</p>
         </div>
         <form @submit.prevent="addItem">
             <div class=" ">
@@ -35,7 +35,7 @@
                     <button type="button" @click="emit('close')"
                         class="rounded bg-indigo-150 px-2 py-1 text-xs font-semibold text-indigo-600 shadow-sm hover:bg-indigo-100">Cancel</button>
                     <button type="submit"
-                        class="rounded mx-2 bg-indigo-600 px-2 py-1 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
+                        class="rounded mx-2 bg-indigo-600 px-2 py-1 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">{{props.isEdit?'Edit':'Save'}}</button>
 
                 </div>
 
